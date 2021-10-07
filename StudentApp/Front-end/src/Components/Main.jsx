@@ -5,13 +5,14 @@ import axios from 'axios';
 
 const Main = () => {
     const [page, setPage] = useState(1);
+    const prev = page;
+    const [getData, setGetData] = useState([]);
     const [data, setData] = useState({
         name: '',
         age: '',
         gender: '',
         city: '',
     });
-    const [getData, setGetData] = useState([]);
 
     const handleChange = (e) => {
         const payload = {
@@ -43,14 +44,12 @@ const Main = () => {
 
     const handleGetData = (value) => {
         if (value === 'decrement') {
-            setPage(page - 1);
+            setPage(prev - 1);
         }
 
         if (value === 'increment') {
-            setPage(page + 1);
+            setPage(prev + 1);
         }
-
-        console.log(page);
         axios
             .get(`http://localhost:2345/students?page=${page}`)
             .then((res) => {
@@ -62,6 +61,52 @@ const Main = () => {
             });
         console.log(getData);
     };
+
+    const handleMale = () => {
+        axios.get('http://localhost:2345/students').then((res) => {
+            const male = res.data.students.filter((item) => {
+                return item.gender === 'Male';
+            });
+            setGetData(male);
+        });
+    };
+
+    const handleFemale = () => {
+        axios.get('http://localhost:2345/students').then((res) => {
+            const female = res.data.students.filter((item) => {
+                return item.gender === 'Female';
+            });
+            setGetData(female);
+        });
+    };
+    const handleGreaterAge = () => {
+        axios.get('http://localhost:2345/students').then((res) => {
+            const greater = res.data.students.filter((item) => {
+                return item.age > 18;
+            });
+            setGetData(greater);
+        });
+    };
+    const handleLessAge = () => {
+        axios.get('http://localhost:2345/students').then((res) => {
+            const lesser = res.data.students.filter((item) => {
+                return item.age <= 18;
+            });
+            setGetData(lesser);
+        });
+    };
+    const sortAscending = () => {
+        axios.get('http://localhost:2345/students/ascending/1').then((res) => {
+            setGetData(res);
+        });
+    };
+    const sortDecending = () => {
+        axios.get('http://localhost:2345/students/decending').then((res) => {
+            setGetData(res);
+        });
+    };
+
+    console.log(getData);
     return (
         <div>
             <div className={styles.main}>
@@ -114,7 +159,51 @@ const Main = () => {
                             </button>
                         </div>
                     </div>
-                    <div className={styles.right}></div>
+                    <div className={styles.right}>
+                        <h2>Sorting according to gender</h2>
+                        <button
+                            onClick={handleMale}
+                            style={{
+                                width: '100',
+                                height: '30px',
+                                borderRadius: '10px',
+                            }}
+                        >
+                            Male
+                        </button>
+                        <button
+                            onClick={handleFemale}
+                            style={{
+                                width: '100',
+                                height: '30px',
+                                borderRadius: '10px',
+                            }}
+                        >
+                            Female
+                        </button>
+
+                        <h2>Sorting according to Age</h2>
+                        <button
+                            onClick={handleGreaterAge}
+                            style={{
+                                width: '100',
+                                height: '30px',
+                                borderRadius: '10px',
+                            }}
+                        >
+                            Age greater than 18
+                        </button>
+                        <button
+                            onClick={handleLessAge}
+                            style={{
+                                width: '100',
+                                height: '30px',
+                                borderRadius: '10px',
+                            }}
+                        >
+                            Age less than or equal to 18
+                        </button>
+                    </div>
                 </div>
                 <div className={styles.bottom}>
                     <button
@@ -124,6 +213,8 @@ const Main = () => {
                     >
                         Show Students Data
                     </button>
+                    <button onClick={sortAscending}>SORT Ascending</button>
+                    <button onClick={sortDecending}>SORT Decending</button>
                     <br />
                     {getData.map((el) => (
                         <div key={uuidv4()} className={styles.data}>

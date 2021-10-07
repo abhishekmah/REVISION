@@ -14,6 +14,20 @@ router.post('', async (req, res) => {
 //     return res.status(200).json({ students })
 // })
 
+// router.get('/', async (req, res) => {
+//     const ascending = req.query.ascending || false;
+    
+//     if(ascending != false ){
+//         const students = await Student.find().sort({'age': -1}).limit(10).lean().exec();
+//         return res.status(200).json({ students })
+//     }
+// })
+
+// router.get('/decending', async (req, res) => {
+//     const students = await Student.find().sort({name: -1}).lean().exec();
+//     return res.status(200).json({ students })
+// })
+
 router.get('/', async (req, res) => {
     const page = +req.query.page || 1;
     const size = +req.query.size || 10;
@@ -28,10 +42,10 @@ router.get('/', async (req, res) => {
     return res.status(200).json({ students, totalPages })
 })
 
-router.get('/:id', async (req, res) => {
-    const student = await Student.findById(req.params.id).lean().exec();
-    return res.status(200).json({ student })
-})
+// router.get('/:id', async (req, res) => {
+//     const student = await Student.findById(req.params.id).lean().exec();
+//     return res.status(200).json({ student })
+// })
 router.patch('/:id', async (req, res) => {
     const student = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true }).lean().exec();
     return res.status(200).json({ student })
