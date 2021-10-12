@@ -5,6 +5,8 @@ import axios from 'axios';
 
 const Main = () => {
     const [page, setPage] = useState(1);
+    const [id, setId] = useState(0);
+    const [modal, setModal] = useState(false);
     const prev = page;
     const [getData, setGetData] = useState([]);
     const [data, setData] = useState({
@@ -14,21 +16,40 @@ const Main = () => {
         city: '',
     });
 
+    const handleId = (id) => {
+        setModal(true);
+        setId(id);
+    };
+
     const handleChange = (e) => {
+        e.preventDefault();
+        // console.log(e.target.value);
         const payload = {
             ...data,
             [e.target.name]: e.target.value,
         };
         setData(payload);
+        // console.log(payload);
     };
+    console.log(data);
 
+    const handleEdit = () => {
+        const res = getData.filter((e) => e._id === id);
+
+        console.log(res);
+        axios
+            .patch(`http://localhost:2345/students/${id}`, { ...data })
+            .then((resu) => {
+                console.log(resu);
+            });
+    };
     const handleSubmit = (e) => {
         e.preventDefault();
         alert('Data Posted');
         axios
             .post('http://localhost:2345/students', data)
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
             })
             .catch((err) => {
                 console.log(err);
@@ -59,7 +80,7 @@ const Main = () => {
             .catch((err) => {
                 console.log(err);
             });
-        console.log(getData);
+        // console.log(getData);
     };
 
     const handleMale = () => {
@@ -96,13 +117,13 @@ const Main = () => {
         });
     };
     const sortAscending = () => {
-        axios.get('http://localhost:2345/students/ascending/1').then((res) => {
-            setGetData(res);
+        axios.get('http://localhost:2345/students/ascending').then((res) => {
+            setGetData(res.data.students);
         });
     };
     const sortDecending = () => {
         axios.get('http://localhost:2345/students/decending').then((res) => {
-            setGetData(res);
+            setGetData(res.data.students);
         });
     };
 
@@ -216,14 +237,82 @@ const Main = () => {
                     <button onClick={sortAscending}>SORT Ascending</button>
                     <button onClick={sortDecending}>SORT Decending</button>
                     <br />
-                    {getData.map((el) => (
-                        <div key={uuidv4()} className={styles.data}>
-                            <p>Name: {el.name}</p>
-                            <p>Age: {el.age}</p>
-                            <p>Gender: {el.gender}</p>
-                            <p>City: {el.city}</p>
+                    {modal === true ? (
+                        <div className={styles.data}>
+                            <input
+                                style={{
+                                    height: 30,
+                                    width: 120,
+                                    marginRight: 10,
+                                }}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Enter Name"
+                                name="name"
+                            />
+                            <input
+                                style={{
+                                    height: 30,
+                                    width: 120,
+                                    marginRight: 10,
+                                }}
+                                onChange={handleChange}
+                                type="number"
+                                placeholder="Enter Age"
+                                name="age"
+                            />
+                            <select
+                                style={{
+                                    height: 30,
+                                    width: 120,
+                                    marginTop: -2,
+                                    marginRight: 10,
+                                }}
+                                onChange={handleChange}
+                                name="gender"
+                            >
+                                <option value=""></option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                            <input
+                                style={{
+                                    height: 30,
+                                    width: 120,
+                                    marginRight: 10,
+                                }}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Enter City"
+                                name="city"
+                            />
+                            <button
+                                style={{ marginLeft: 30 }}
+                                onClick={() => handleEdit()}
+                            >
+                                Submit
+                            </button>
+                            <button
+                                onClick={() => setModal(false)}
+                                style={{ marginLeft: 30 }}
+                            >
+                                Close
+                            </button>
                         </div>
-                    ))}
+                    ) : (
+                        getData.map((el) => (
+                            <div key={uuidv4()} className={styles.data}>
+                                <p>Name: {el.name}</p>
+                                <p>Age: {el.age}</p>
+                                <p>Gender: {el.gender}</p>
+                                <p>City: {el.city}</p>
+                                <button onClick={() => handleId(el._id)}>
+                                    Edit
+                                </button>
+                                <button>Delete</button>
+                            </div>
+                        ))
+                    )}
                     <button onClick={() => handleGetData('decrement')}>
                         Prev
                     </button>

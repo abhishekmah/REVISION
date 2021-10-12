@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imgur App</title>
+    <link rel="stylesheet" href="./imgur.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="left">
+                <div>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Imgur_Title_Screen_Image.svg/1280px-Imgur_Title_Screen_Image.svg.png"
+                        alt=""
+                    />
+                </div>
+                <div>
+                    <div>
+                        <i class="fas fa-folder-plus" style="margin-right: 17px; font-size: 19px;"></i>
+                        <span>New Post</span>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <input
+                    type="text"
+                    style="
+                        width: 75%;
+                        background-color: #454569;
+                        border: none;
+                        margin-left: 100px;
+                        border-radius: 3px;
+                        height: 37px;
+                        outline: none;
+                        font-size: 17px;
+                        color: white;
+                    "
+                    id="search"
+                    placeholder="Images, #tags, @users oh my!"
+                /><i class="fas fa-search" style="position: relative; right: 32px; top: 4px;font-weight: 600; color: white; font-size: 25px; cursor: pointer;" onclick="handleSearch()"></i></input>
+            </div>
+            <div class="right">
+                <div class="div">
+                    <div>
+                        <span style=" margin-left: 14px ">
+                            Go Ad-Free
+                        </span>
+                    </div>
+                </div>
+                <div class="div">
+                    <div>
+                        <span style=" margin-left: 18px ">Sign in</span>
+                    </div>
+                </div>
+                <div class="div">
+                    <div>
+                        <span style=" margin-left: 18px ">Sign up</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top">
+            <br>
+            <br>
+            <br>
+            <h1>Stay true to you.</h1>
+            <div class="flex1">
+                <div class="first">
+                    <div>EXPLORE TAGS</div>
+                    <div>MORE TAGS +</div>
+                </div>
+                <div class="second">
+                    <img src="https://i.ibb.co/SXTJbGj/imgur.png" alt="">
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="flex2">
+                <div class="first1">
+                    <div>MOST VIRAL</div>
+                    <div>BEST</div>
+                </div>
+                <br>
+                <br>
+                <div class="images">
+                    <div id="div1"></div>
+                    <div id="div2"></div>
+                    <div id="div3"></div>
+                    <div id="div4"></div>
+                    <div id="div5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./imgur.js"></script>
+</html>

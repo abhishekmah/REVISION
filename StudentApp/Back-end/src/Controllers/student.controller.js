@@ -14,19 +14,18 @@ router.post('', async (req, res) => {
 //     return res.status(200).json({ students })
 // })
 
-// router.get('/', async (req, res) => {
-//     const ascending = req.query.ascending || false;
+router.get('/ascending', async (req, res) => {
+    // const ascending = req.query.ascending || false;
     
-//     if(ascending != false ){
-//         const students = await Student.find().sort({'age': -1}).limit(10).lean().exec();
-//         return res.status(200).json({ students })
-//     }
-// })
+        const students = await Student.find().sort({'age': 1}).limit(10).lean().exec();
+        return res.status(200).json({ students })
+    
+})
 
-// router.get('/decending', async (req, res) => {
-//     const students = await Student.find().sort({name: -1}).lean().exec();
-//     return res.status(200).json({ students })
-// })
+router.get('/decending', async (req, res) => {
+    const students = await Student.find().sort({'age': -1}).limit(10).lean().exec();
+    return res.status(200).json({ students })
+})
 
 router.get('/', async (req, res) => {
     const page = +req.query.page || 1;
