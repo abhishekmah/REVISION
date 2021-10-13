@@ -5,7 +5,7 @@
 - [Javacript](https://github.com/abhishekmah/REVISION/blob/master/JS.md)
 - [React](https://github.com/abhishekmah/REVISION/blob/master/React.md)
 - [Postman](https://github.com/abhishekmah/REVISION/blob/master/Postman.md)
-- [HTML](#)
+- [JS Interview](#https://github.com/abhishekmah/REVISION/blob/master/https://github.com/abhishekmah/REVISION/blob/master/JavaScript%20Interview%20Questions.md)
 - [CSS](#)
 - [Data Structures & Algo](https://github.com/trekhleb/javascript-algorithms)
 
