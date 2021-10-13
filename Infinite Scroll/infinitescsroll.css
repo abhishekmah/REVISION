@@ -1,0 +1,23 @@
+#main {
+  width: 400px;
+  height: 600px;
+  overflow: auto;
+  margin: 30px;
+  padding: 20px;
+  border: 5px solid rgb(235, 11, 216);
+  margin: auto;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+li {
+  padding: 10px;
+  list-style-type: none;
+  text-align: center;
+  font-size: 26px;
+}
+li:hover {
+  border-radius: 30px;
+  background: rgb(255, 165, 240);
+  color: aliceblue;
+}
