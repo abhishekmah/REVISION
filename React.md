@@ -1,102 +1,104 @@
 # REACT Readme
 
-Javascript Topics:
+Basics:
 
-- primitives data types
-- variables, string, numbers, booleans, undefined, null, NaN
-- arithmetic operators
-- comparison operators
-- logical operators
-- conditional statements (if else, switch)
-- functions, arguments, return statement, scope
-- callbacks, higher order functions
-- for loops, while, do while
-- Arrays
-    - declaration
-    - accessing items
-    - assignment
-    - Array methods
-    - 2D array
-    - 3D array
-    - forEach, map, reduce, filter callbacks
-- Objects
-    - difference from arrays
-    - key value pair
-    - accessing values
-    - assigning values
-    - methods
-    - for in loop
-    - this
-- hoisting
-- scopes
-    - global
-    - local scope
-    - block scope
-- closures
-- lexical scoping
-- Execution context
-- strict mode
-- solve problems faster by using objects 
-- recursion
-- DOM manipulation 
-    - createElement
-    - append
-    - getElementById
-    - querySelector
-    - querySelectorAll
-    - setAttribute
-    - children methods
-- event API, eventListener
-- event bubbling
-- event capturing
-- style and attribute manipulation with DOM
-- JSON
-- using AJAX / XHR
-- callback, callback hell
-- asyncrnonous behavior in javascript
-    - setTimeout
-    - setInterval
-- event loop
-    - call stack
-    - task/event queue
-- WEB API
-- promises
-    - promise chaining
-    - advantage over callbacks
-- async, await
-- fetch API
-- axios
-- CORS
-- jQuery
-- IIFE
-- anonymous functions
-- Sets, Map
-- modules
-- localStorage, cookie, sessionStorage
-- ECMAScript, TC39
-- polyfill
-- tree shaking
-- HTTP protocols
-- Implementation of Stacks, Queues, Linked List, Trees (Binary Tree, Nary Tree), Graphs
-- Traversing, reversing, mirror, and other operations for LinkedList, Trees, Graphs (1st, 2nd, 3rd level)
+- Babel
+- Webpack
+- Bundling
+- Adding images and css and styles
+- Imperative vs Declerative
+- JSX,Conventions on react
+- embeding expression in JSX
+- Props
+- spread attributes
+- passing props
+- event handling in react
+- Stateless components (functional)
+- Stateful components (class components)
+- updating state
+- setState
+- state properties
+- props vs state
+- Lists or array.map 
+- keys
+- Virtual DOM
+- Reconciliation (going to be renamed to React Fibre)
+- Component lifecycle
+- State and Lifecycle
+- Conditional Rendering
+- Controlled form, uncontrolled form
+- Composition Containment
+
+Redux:
+
+- store 
+- actions
+- dispatcher
+- architecture
+- applying middleware
+- redux thunk
+- [style guide](https://redux.js.org/style-guide/style-guide)
+
+React-Redux:
+
+- Provider
+- connect()
+    - mapStateToProps
+    - mapDispatchToProps
+- Hooks
+
+React-Router:
+
+- Link
+- Route
+    - exact
+    - render method & component method
+- BrowserRouter
+- Switch
+    - no match
+- Authentication
+- match object
+    - Dynamic routing with match object
+    - params
+    - path
+    - url
+- history object
+    - location
+        - pathname
+        - search
+    - push
+    - replace
+    - goBack
+    - goForward
+    - go()
+    - length
+    - action
+- Hooks API
+    - useHistory
+    - useLocation
+    - useParams
+    - useRouteMatch
 
 
-ES6 and others:
+More React:
 
-- var let const
-- arrow functions
-- template literals
-- destructuring
-- default params
-- event loop
-- promises, async, await, fetch, axios
-- classes
-- this
-- inheritance, and prototype
-- call apply bind
-- getters
-- setters
-- generators
-- yield
-- BigInt
-- Optional Chaining
+- [Top Level API](https://reactjs.org/docs/react-api.html)
+- [Other React APIS](https://reactjs.org/docs/react-component.html)
+- Hooks
+    - useState
+    - useEffect
+    - Custom Hooks
+    - Rules of Hooks
+    - [FAQ](https://reactjs.org/docs/hooks-faq.html)
+- PropTypes and Type checking
+- Webpack
+- Configuring React without CRA
+- Optimising Performance
+- 
+- Pure Component
+- Hydrate Component
+- Context
+- Error Boundaries
+- Portals
+- Suspense/Lazy loading (CONCURRENT mode-new/experimental)
+- [Testing](https://reactjs.org/docs/test-utils.html)
