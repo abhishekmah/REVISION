@@ -8,18 +8,22 @@ var j=0;
 
 ////***** DEBOUNCING *****////// remove clearTimeout === Throttling....
 var search = document.getElementById("search");
+
     function debounce(func, delay) {
     let timer;
+    // console.log(j)
+    
     return function () {
+        j = 0;
         let context = this;
         let args = arguments;
         clearTimeout(timer);
         timer = setTimeout(() => {
-        func.apply(context, args);
+        func.apply(context, args, j);
         }, delay);
     };
     }
-search.addEventListener("click", debounce(handleSearch, 2000));
+search.addEventListener("keyup", debounce(handleSearch, 2000));
 
 async function handleSearch() {
     if(a == 0){
