@@ -1,0 +1,36 @@
+.main {
+    margin-left: 48px;
+    display: flex;
+    color: rgb(230, 76, 76);
+    padding: 32px;
+}
+.card {
+    margin: 1%;
+    padding: 1%;
+    padding-top: 0%;
+    text-align: left;
+    border-radius: 10px;
+    background-color: #cecece;
+}
+.card > h1 {
+    font-size: 26px;
+}
+.line {
+    width: 7px;
+    min-height: 160px;
+    background-color: rgb(247, 7, 195);
+    margin-left: -1rem;
+    margin-top: 15px;
+    position: absolute;
+    cursor: pointer;
+}
+.options {
+    display: flex;
+    justify-content: start;
+}
+.options > button {
+    width: 120px;
+    height: 35px;
+    cursor: pointer;
+    margin-right: 4px;
+}
