@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './Comment.module.css';
-import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import { AiFillPlusSquare } from 'react-icons/ai';
 
